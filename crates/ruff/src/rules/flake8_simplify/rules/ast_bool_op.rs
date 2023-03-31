@@ -3,16 +3,14 @@ use std::iter;
 
 use itertools::Either::{Left, Right};
 use itertools::Itertools;
+use ruff_text_size::{TextRange, TextSize};
 use rustc_hash::FxHashMap;
-use rustpython_parser::ast::{
-    Boolop, Cmpop, Constant, Expr, ExprContext, ExprKind, Location, Unaryop,
-};
+use rustpython_parser::ast::{Boolop, Cmpop, Constant, Expr, ExprContext, ExprKind, Unaryop};
 
 use ruff_diagnostics::{AlwaysAutofixableViolation, AutofixKind, Diagnostic, Edit, Violation};
 use ruff_macros::{derive_message_formats, violation};
 use ruff_python_ast::comparable::ComparableExpr;
 use ruff_python_ast::helpers::{contains_effect, create_expr, has_comments, unparse_expr};
-use ruff_python_ast::types::Range;
 use ruff_python_semantic::context::Context;
 
 use crate::checkers::ast::Checker;
@@ -223,7 +221,7 @@ pub fn duplicate_isinstance_call(checker: &mut Checker, expr: &Expr) {
                     },
                     fixable,
                 },
-                Range::from(expr),
+                expr.range(),
             );
             if fixable && checker.patch(diagnostic.kind.rule()) {
                 // Grab the types used in each duplicate `isinstance` call (e.g., `int` and `str`
@@ -284,8 +282,8 @@ pub fn duplicate_isinstance_call(checker: &mut Checker, expr: &Expr) {
                 // multiple duplicates, the fixes will conflict.
                 diagnostic.set_fix(Edit::replacement(
                     unparse_expr(&bool_op, checker.stylist),
-                    expr.location,
-                    expr.end_location.unwrap(),
+                    expr.start(),
+                    expr.end(),
                 ));
             }
             checker.diagnostics.push(diagnostic);
@@ -367,7 +365,7 @@ pub fn compare_with_tuple(checker: &mut Checker, expr: &Expr) {
             CompareWithTuple {
                 replacement: unparse_expr(&in_expr, checker.stylist),
             },
-            Range::from(expr),
+            expr.range(),
         );
         if checker.patch(diagnostic.kind.rule()) {
             let unmatched: Vec<Expr> = values
@@ -387,8 +385,8 @@ pub fn compare_with_tuple(checker: &mut Checker, expr: &Expr) {
             };
             diagnostic.set_fix(Edit::replacement(
                 unparse_expr(&in_expr, checker.stylist),
-                expr.location,
-                expr.end_location.unwrap(),
+                expr.start(),
+                expr.end(),
             ));
         }
         checker.diagnostics.push(diagnostic);
@@ -434,13 +432,13 @@ pub fn expr_and_not_expr(checker: &mut Checker, expr: &Expr) {
                     ExprAndNotExpr {
                         name: id.to_string(),
                     },
-                    Range::from(expr),
+                    expr.range(),
                 );
                 if checker.patch(diagnostic.kind.rule()) {
                     diagnostic.set_fix(Edit::replacement(
                         "False".to_string(),
-                        expr.location,
-                        expr.end_location.unwrap(),
+                        expr.start(),
+                        expr.end(),
                     ));
                 }
                 checker.diagnostics.push(diagnostic);
@@ -488,13 +486,13 @@ pub fn expr_or_not_expr(checker: &mut Checker, expr: &Expr) {
                     ExprOrNotExpr {
                         name: id.to_string(),
                     },
-                    Range::from(expr),
+                    expr.range(),
                 );
                 if checker.patch(diagnostic.kind.rule()) {
                     diagnostic.set_fix(Edit::replacement(
                         "True".to_string(),
-                        expr.location,
-                        expr.end_location.unwrap(),
+                        expr.start(),
+                        expr.end(),
                     ));
                 }
                 checker.diagnostics.push(diagnostic);
@@ -507,7 +505,7 @@ pub fn is_short_circuit(
     ctx: &Context,
     expr: &Expr,
     expected_op: &Boolop,
-) -> Option<(Location, Location)> {
+) -> Option<(TextSize, TextSize)> {
     let ExprKind::BoolOp { op, values, } = &expr.node else {
         return None;
     };
@@ -519,11 +517,11 @@ pub fn is_short_circuit(
         Boolop::Or => true,
     };
 
-    let mut location = expr.location;
+    let mut location = expr.start();
     for (value, next_value) in values.iter().tuple_windows() {
         // Keep track of the location of the furthest-right, non-effectful expression.
         if contains_effect(value, |id| ctx.is_builtin(id)) {
-            location = next_value.location;
+            location = next_value.start();
             continue;
         }
 
@@ -537,7 +535,7 @@ pub fn is_short_circuit(
         } = &value.node
         {
             if bool == &short_circuit_value {
-                return Some((location, expr.end_location.unwrap()));
+                return Some((location, expr.end()));
             }
         }
 
@@ -549,7 +547,7 @@ pub fn is_short_circuit(
         } = &next_value.node
         {
             if bool == &short_circuit_value {
-                return Some((location, expr.end_location.unwrap()));
+                return Some((location, expr.end()));
             }
         }
     }
@@ -561,13 +559,7 @@ pub fn expr_or_true(checker: &mut Checker, expr: &Expr) {
     let Some((location, end_location)) = is_short_circuit(&checker.ctx, expr, &Boolop::Or) else {
         return;
     };
-    let mut diagnostic = Diagnostic::new(
-        ExprOrTrue,
-        Range {
-            location,
-            end_location,
-        },
-    );
+    let mut diagnostic = Diagnostic::new(ExprOrTrue, TextRange::new(location, end_location));
     if checker.patch(diagnostic.kind.rule()) {
         diagnostic.set_fix(Edit::replacement(
             "True".to_string(),
@@ -583,13 +575,7 @@ pub fn expr_and_false(checker: &mut Checker, expr: &Expr) {
     let Some((location, end_location)) = is_short_circuit(&checker.ctx, expr, &Boolop::And) else {
         return;
     };
-    let mut diagnostic = Diagnostic::new(
-        ExprAndFalse,
-        Range {
-            location,
-            end_location,
-        },
-    );
+    let mut diagnostic = Diagnostic::new(ExprAndFalse, TextRange::new(location, end_location));
     if checker.patch(diagnostic.kind.rule()) {
         diagnostic.set_fix(Edit::replacement(
             "False".to_string(),
