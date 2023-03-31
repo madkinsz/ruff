@@ -2,7 +2,7 @@ use rustpython_parser::ast::{Expr, ExprKind, Stmt, StmtKind};
 
 use ruff_diagnostics::{Diagnostic, Violation};
 use ruff_macros::{derive_message_formats, violation};
-use ruff_python_ast::{call_path::compose_call_path, helpers::map_callable, types::Range};
+use ruff_python_ast::{call_path::compose_call_path, helpers::map_callable};
 use ruff_python_semantic::context::Context;
 
 use crate::checkers::ast::Checker;
@@ -163,7 +163,7 @@ pub fn function_call_in_dataclass_defaults(checker: &mut Checker, body: &[Stmt])
                         FunctionCallInDataclassDefaultArgument {
                             name: compose_call_path(func),
                         },
-                        Range::from(expr),
+                        expr.range(),
                     ));
                 }
             }
@@ -182,7 +182,7 @@ pub fn mutable_dataclass_default(checker: &mut Checker, body: &[Stmt]) {
             if is_mutable_expr(value) {
                 checker
                     .diagnostics
-                    .push(Diagnostic::new(MutableDataclassDefault, Range::from(value)));
+                    .push(Diagnostic::new(MutableDataclassDefault, value.range()));
             }
         }
     }
