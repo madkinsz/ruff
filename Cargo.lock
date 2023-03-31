@@ -2110,6 +2110,7 @@ dependencies = [
  "ruff_diagnostics",
  "ruff_python_ast",
  "ruff_python_stdlib",
+ "ruff_text_size",
  "rustc-hash",
  "serde",
  "serde_json",
@@ -2153,6 +2154,7 @@ dependencies = [
  "anyhow",
  "log",
  "ruff_python_ast",
+ "ruff_text_size",
  "rustpython-parser",
  "serde",
 ]
@@ -2235,6 +2237,7 @@ dependencies = [
  "nohash-hasher",
  "ruff_python_ast",
  "ruff_python_stdlib",
+ "ruff_text_size",
  "rustc-hash",
  "rustpython-parser",
  "smallvec",
@@ -2274,8 +2277,6 @@ version = "0.0.0"
 dependencies = [
  "schemars",
  "serde",
- "serde_test",
- "static_assertions",
 ]
 
 [[package]]
@@ -2343,16 +2344,14 @@ dependencies = [
 [[package]]
 name = "rustpython-ast"
 version = "0.2.0"
-source = "git+https://github.com/RustPython/RustPython.git?rev=c15f670f2c30cfae6b41a1874893590148c74bc4#c15f670f2c30cfae6b41a1874893590148c74bc4"
 dependencies = [
  "num-bigint",
- "rustpython-compiler-core",
+ "ruff_text_size",
 ]
 
 [[package]]
 name = "rustpython-common"
 version = "0.2.0"
-source = "git+https://github.com/RustPython/RustPython.git?rev=c15f670f2c30cfae6b41a1874893590148c74bc4#c15f670f2c30cfae6b41a1874893590148c74bc4"
 dependencies = [
  "ascii",
  "bitflags 1.3.2",
@@ -2377,7 +2376,6 @@ dependencies = [
 [[package]]
 name = "rustpython-compiler-core"
 version = "0.2.0"
-source = "git+https://github.com/RustPython/RustPython.git?rev=c15f670f2c30cfae6b41a1874893590148c74bc4#c15f670f2c30cfae6b41a1874893590148c74bc4"
 dependencies = [
  "bitflags 1.3.2",
  "bstr 0.2.17",
@@ -2385,13 +2383,13 @@ dependencies = [
  "lz4_flex",
  "num-bigint",
  "num-complex",
+ "ruff_text_size",
  "serde",
 ]
 
 [[package]]
 name = "rustpython-parser"
 version = "0.2.0"
-source = "git+https://github.com/RustPython/RustPython.git?rev=c15f670f2c30cfae6b41a1874893590148c74bc4#c15f670f2c30cfae6b41a1874893590148c74bc4"
 dependencies = [
  "ahash",
  "anyhow",
@@ -2403,6 +2401,7 @@ dependencies = [
  "num-traits",
  "phf",
  "phf_codegen",
+ "ruff_text_size",
  "rustc-hash",
  "rustpython-ast",
  "rustpython-compiler-core",
