@@ -4192,10 +4192,7 @@ impl<'a> Checker<'a> {
                             );
                             if let Some(parent) = binding.source.as_ref() {
                                 if matches!(parent.node, StmtKind::ImportFrom { .. })
-                                    && self.locator.contains_line_break(TextRange::new(
-                                        parent.start(),
-                                        binding.range.start(),
-                                    ))
+                                    && parent.range().contains_range(binding.range)
                                 {
                                     diagnostic.set_parent(parent.start());
                                 }
@@ -5062,10 +5059,7 @@ impl<'a> Checker<'a> {
                                 );
                                 if let Some(parent) = &rebound.source {
                                     if matches!(parent.node, StmtKind::ImportFrom { .. })
-                                        && self.locator.contains_line_break(TextRange::new(
-                                            parent.start(),
-                                            rebound.range.start(),
-                                        ))
+                                        && parent.range().contains_range(rebound.range)
                                     {
                                         diagnostic.set_parent(parent.start());
                                     }
