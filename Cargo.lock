@@ -2162,7 +2162,7 @@ dependencies = [
 [[package]]
 name = "ruff_text_size"
 version = "0.0.0"
-source = "git+https://github.com/charliermarsh/RustPython.git?rev=974a19cc535bb6eeefec11a8d9c1cf4e212010e0#974a19cc535bb6eeefec11a8d9c1cf4e212010e0"
+source = "git+https://github.com/charliermarsh/RustPython.git?rev=e53251a2f7a4dda09afd3d43e22375d345e31a95#e53251a2f7a4dda09afd3d43e22375d345e31a95"
 dependencies = [
  "schemars",
  "serde",
@@ -2233,7 +2233,7 @@ dependencies = [
 [[package]]
 name = "rustpython-ast"
 version = "0.2.0"
-source = "git+https://github.com/charliermarsh/RustPython.git?rev=974a19cc535bb6eeefec11a8d9c1cf4e212010e0#974a19cc535bb6eeefec11a8d9c1cf4e212010e0"
+source = "git+https://github.com/charliermarsh/RustPython.git?rev=e53251a2f7a4dda09afd3d43e22375d345e31a95#e53251a2f7a4dda09afd3d43e22375d345e31a95"
 dependencies = [
  "num-bigint",
  "ruff_text_size",
@@ -2242,19 +2242,19 @@ dependencies = [
 [[package]]
 name = "rustpython-common"
 version = "0.2.0"
-source = "git+https://github.com/charliermarsh/RustPython.git?rev=974a19cc535bb6eeefec11a8d9c1cf4e212010e0#974a19cc535bb6eeefec11a8d9c1cf4e212010e0"
+source = "git+https://github.com/charliermarsh/RustPython.git?rev=e53251a2f7a4dda09afd3d43e22375d345e31a95#e53251a2f7a4dda09afd3d43e22375d345e31a95"
 dependencies = [
  "ascii",
  "bitflags",
  "bstr 0.2.17",
  "cfg-if",
+ "getrandom",
  "hexf-parse",
  "itertools",
  "lexical-parse-float",
  "libc",
  "lock_api",
  "num-bigint",
- "num-complex",
  "num-traits",
  "once_cell",
  "radium",
@@ -2268,10 +2268,9 @@ dependencies = [
 [[package]]
 name = "rustpython-compiler-core"
 version = "0.2.0"
-source = "git+https://github.com/charliermarsh/RustPython.git?rev=974a19cc535bb6eeefec11a8d9c1cf4e212010e0#974a19cc535bb6eeefec11a8d9c1cf4e212010e0"
+source = "git+https://github.com/charliermarsh/RustPython.git?rev=e53251a2f7a4dda09afd3d43e22375d345e31a95#e53251a2f7a4dda09afd3d43e22375d345e31a95"
 dependencies = [
  "bitflags",
- "bstr 0.2.17",
  "itertools",
  "lz4_flex",
  "num-bigint",
@@ -2282,9 +2281,8 @@ dependencies = [
 [[package]]
 name = "rustpython-parser"
 version = "0.2.0"
-source = "git+https://github.com/charliermarsh/RustPython.git?rev=974a19cc535bb6eeefec11a8d9c1cf4e212010e0#974a19cc535bb6eeefec11a8d9c1cf4e212010e0"
+source = "git+https://github.com/charliermarsh/RustPython.git?rev=e53251a2f7a4dda09afd3d43e22375d345e31a95#e53251a2f7a4dda09afd3d43e22375d345e31a95"
 dependencies = [
- "ahash",
  "anyhow",
  "itertools",
  "lalrpop",
