@@ -1,6 +1,7 @@
 use crate::message::{Emitter, EmitterContext, Message};
 use crate::registry::AsRule;
 use ruff_diagnostics::Edit;
+use rustpython_parser::ast::Location;
 use serde::ser::SerializeSeq;
 use serde::{Serialize, Serializer};
 use serde_json::json;
@@ -74,8 +75,8 @@ impl Serialize for ExpandedEdits<'_> {
         for edit in self.edits {
             let value = json!({
                 "content": edit.content().unwrap_or_default(),
-                "location": edit.location(),
-                "end_location": edit.end_location()
+                "location": one_indexed(edit.location()),
+                "end_location": one_indexed(edit.end_location())
             });
 
             s.serialize_element(&value)?;
@@ -83,6 +84,11 @@ impl Serialize for ExpandedEdits<'_> {
 
         s.end()
     }
+}
+
+fn one_indexed(mut location: Location) -> Location {
+    location.go_right();
+    location
 }
 
 #[cfg(test)]
