@@ -33,7 +33,7 @@ pub enum Applicability {
 pub struct Fix {
     edits: Vec<Edit>,
     applicability: Applicability,
-    message: Option<String>,
+    pub message: Option<String>,
 }
 
 impl Fix {
