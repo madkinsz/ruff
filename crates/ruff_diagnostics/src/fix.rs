@@ -62,56 +62,68 @@ impl Fix {
     }
 
     /// Create a new [`Fix`] with [automatic applicability](Applicability::Automatic) from an [`Edit`] element.
-    pub fn automatic(edit: Edit) -> Self {
+    pub fn automatic(edit: Edit, message: Option<String>) -> Self {
         Self {
             edits: vec![edit],
             applicability: Applicability::Automatic,
-            message: None,
+            message,
         }
     }
 
     /// Create a new [`Fix`] with [automatic applicability](Applicability::Automatic) from multiple [`Edit`] elements.
-    pub fn automatic_edits(edit: Edit, rest: impl IntoIterator<Item = Edit>) -> Self {
+    pub fn automatic_edits(
+        edit: Edit,
+        rest: impl IntoIterator<Item = Edit>,
+        message: Option<String>,
+    ) -> Self {
         Self {
             edits: std::iter::once(edit).chain(rest.into_iter()).collect(),
             applicability: Applicability::Automatic,
-            message: None,
+            message,
         }
     }
 
     /// Create a new [`Fix`] with [suggested applicability](Applicability::Suggested) from an [`Edit`] element.
-    pub fn suggested(edit: Edit) -> Self {
+    pub fn suggested(edit: Edit, message: Option<String>) -> Self {
         Self {
             edits: vec![edit],
             applicability: Applicability::Suggested,
-            message: None,
+            message,
         }
     }
 
     /// Create a new [`Fix`] with [suggested applicability](Applicability::Suggested) from multiple [`Edit`] elements.
-    pub fn suggested_edits(edit: Edit, rest: impl IntoIterator<Item = Edit>) -> Self {
+    pub fn suggested_edits(
+        edit: Edit,
+        rest: impl IntoIterator<Item = Edit>,
+        message: Option<String>,
+    ) -> Self {
         Self {
             edits: std::iter::once(edit).chain(rest.into_iter()).collect(),
             applicability: Applicability::Suggested,
-            message: None,
+            message,
         }
     }
 
     /// Create a new [`Fix`] with [manual applicability](Applicability::Manual) from an [`Edit`] element.
-    pub fn manual(edit: Edit) -> Self {
+    pub fn manual(edit: Edit, message: Option<String>) -> Self {
         Self {
             edits: vec![edit],
             applicability: Applicability::Manual,
-            message: None,
+            message,
         }
     }
 
     /// Create a new [`Fix`] with [manual applicability](Applicability::Manual) from multiple [`Edit`] elements.
-    pub fn manual_edits(edit: Edit, rest: impl IntoIterator<Item = Edit>) -> Self {
+    pub fn manual_edits(
+        edit: Edit,
+        rest: impl IntoIterator<Item = Edit>,
+        message: Option<String>,
+    ) -> Self {
         Self {
             edits: std::iter::once(edit).chain(rest.into_iter()).collect(),
             applicability: Applicability::Manual,
-            message: None,
+            message,
         }
     }
 
