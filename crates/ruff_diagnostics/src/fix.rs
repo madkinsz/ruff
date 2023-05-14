@@ -33,6 +33,7 @@ pub enum Applicability {
 pub struct Fix {
     edits: Vec<Edit>,
     applicability: Applicability,
+    message: Option<String>,
 }
 
 impl Fix {
@@ -44,6 +45,7 @@ impl Fix {
         Self {
             edits: vec![edit],
             applicability: Applicability::Unspecified,
+            message: None,
         }
     }
 
@@ -55,6 +57,7 @@ impl Fix {
         Self {
             edits: std::iter::once(edit).chain(rest.into_iter()).collect(),
             applicability: Applicability::Unspecified,
+            message: None,
         }
     }
 
@@ -63,6 +66,7 @@ impl Fix {
         Self {
             edits: vec![edit],
             applicability: Applicability::Automatic,
+            message: None,
         }
     }
 
@@ -71,6 +75,7 @@ impl Fix {
         Self {
             edits: std::iter::once(edit).chain(rest.into_iter()).collect(),
             applicability: Applicability::Automatic,
+            message: None,
         }
     }
 
@@ -79,6 +84,7 @@ impl Fix {
         Self {
             edits: vec![edit],
             applicability: Applicability::Suggested,
+            message: None,
         }
     }
 
@@ -87,6 +93,7 @@ impl Fix {
         Self {
             edits: std::iter::once(edit).chain(rest.into_iter()).collect(),
             applicability: Applicability::Suggested,
+            message: None,
         }
     }
 
@@ -95,6 +102,7 @@ impl Fix {
         Self {
             edits: vec![edit],
             applicability: Applicability::Manual,
+            message: None,
         }
     }
 
@@ -103,6 +111,7 @@ impl Fix {
         Self {
             edits: std::iter::once(edit).chain(rest.into_iter()).collect(),
             applicability: Applicability::Manual,
+            message: None,
         }
     }
 
