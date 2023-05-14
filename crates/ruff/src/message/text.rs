@@ -150,10 +150,19 @@ pub(super) struct MessageCodeFrame<'a> {
 impl Display for MessageCodeFrame<'_> {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         let Message {
-            kind, file, range, ..
+            kind,
+            file,
+            range,
+            fix,
+            ..
         } = self.message;
 
-        let suggestion = kind.suggestion.as_deref();
+        let suggestion = (kind
+            .suggestion
+            .as_ref()
+            .or_else(|| fix.as_ref().and_then(|fix| fix.message.as_ref())))
+        .map(|x| x.as_str());
+
         let footer = if suggestion.is_some() {
             vec![Annotation {
                 id: None,
