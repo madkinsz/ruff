@@ -81,7 +81,7 @@ pub(crate) fn ellipsis_in_non_empty_class_body<'a>(
                                 checker.deletions.insert(RefEquality(stmt));
                             }
 
-                            Ok(Fix::automatic(edit))
+                            Ok(Fix::automatic(edit, Some("Remove ellipsis".to_string())))
                         });
                     }
 

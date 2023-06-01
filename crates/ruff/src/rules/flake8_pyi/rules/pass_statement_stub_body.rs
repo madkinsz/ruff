@@ -28,10 +28,10 @@ pub(crate) fn pass_statement_stub_body(checker: &mut Checker, body: &[Stmt]) {
     if body[0].is_pass_stmt() {
         let mut diagnostic = Diagnostic::new(PassStatementStubBody, body[0].range());
         if checker.patch(Rule::PassStatementStubBody) {
-            diagnostic.set_fix(Fix::automatic(Edit::range_replacement(
-                format!("..."),
-                body[0].range(),
-            )));
+            diagnostic.set_fix(Fix::automatic(
+                Edit::range_replacement(format!("..."), body[0].range()),
+                Some("Replace `pass` with `...`".to_string()),
+            ));
         };
         checker.diagnostics.push(diagnostic);
     }

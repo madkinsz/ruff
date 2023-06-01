@@ -52,10 +52,10 @@ pub(crate) fn use_pep585_annotation(
             ModuleMember::BuiltIn(name) => {
                 // Built-in type, like `list`.
                 if checker.semantic_model().is_builtin(name) {
-                    diagnostic.set_fix(Fix::automatic(Edit::range_replacement(
-                        (*name).to_string(),
-                        expr.range(),
-                    )));
+                    diagnostic.set_fix(Fix::automatic(
+                        Edit::range_replacement((*name).to_string(), expr.range()),
+                        Some("Replace with standard type".to_string()),
+                    ));
                 }
             }
             ModuleMember::Member(module, member) => {
@@ -70,7 +70,11 @@ pub(crate) fn use_pep585_annotation(
                         checker.locator,
                     )?;
                     let reference_edit = Edit::range_replacement(binding, expr.range());
-                    Ok(Fix::suggested_edits(import_edit, [reference_edit]))
+                    Ok(Fix::suggested_edits(
+                        import_edit,
+                        [reference_edit],
+                        Some("Replace with standard type".to_string()),
+                    ))
                 });
             }
         }
