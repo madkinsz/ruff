@@ -6,6 +6,7 @@ expression: content
   {
     "code": "F401",
     "message": "`os` imported but unused",
+    "suggestion": "Remove unused import: `os`",
     "fix": {
       "applicability": "Suggested",
       "message": "Remove unused import: `os`",
@@ -37,6 +38,7 @@ expression: content
   {
     "code": "F841",
     "message": "Local variable `x` is assigned to but never used",
+    "suggestion": "Remove assignment to unused variable `x`",
     "fix": {
       "applicability": "Suggested",
       "message": "Remove assignment to unused variable `x`",
@@ -68,6 +70,7 @@ expression: content
   {
     "code": "F821",
     "message": "Undefined name `a`",
+    "suggestion": null,
     "fix": null,
     "location": {
       "row": 1,
