@@ -1309,6 +1309,6 @@ pub(crate) fn fix_unnecessary_comprehension_any_all(
 
     Ok(Fix::suggested(
         Edit::range_replacement(state.to_string(), expr.range()),
-        Some("Convert list comprehension into generator".to_string()),
+        "Convert list comprehension into generator".to_string(),
     ))
 }

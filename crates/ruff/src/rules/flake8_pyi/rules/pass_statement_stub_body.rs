@@ -30,7 +30,7 @@ pub(crate) fn pass_statement_stub_body(checker: &mut Checker, body: &[Stmt]) {
         if checker.patch(Rule::PassStatementStubBody) {
             diagnostic.set_fix(Fix::automatic(
                 Edit::range_replacement(format!("..."), body[0].range()),
-                Some("Replace `pass` with `...`".to_string()),
+                "Replace `pass` with `...`".to_string(),
             ));
         };
         checker.diagnostics.push(diagnostic);

@@ -86,7 +86,7 @@ fn fix_explicit_f_string_type_conversion(
 
     Ok(Fix::automatic(
         Edit::range_replacement(state.to_string(), range),
-        Some("Use f-string conversion flag".to_string()),
+        "Use f-string conversion flag".to_string(),
     ))
 }
 

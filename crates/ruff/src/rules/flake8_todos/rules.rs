@@ -370,7 +370,7 @@ fn tag_errors(tag: &Tag, diagnostics: &mut Vec<Diagnostic>, settings: &Settings)
         if settings.rules.should_fix(Rule::InvalidTodoCapitalization) {
             diagnostic.set_fix(Fix::automatic(
                 Edit::range_replacement("TODO".to_string(), tag.range),
-                Some("Capitalize TODO".to_string()),
+                "Capitalize TODO".to_string(),
             ));
         }
 

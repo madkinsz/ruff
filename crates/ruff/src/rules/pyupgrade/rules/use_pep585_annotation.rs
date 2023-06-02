@@ -54,7 +54,7 @@ pub(crate) fn use_pep585_annotation(
                 if checker.semantic_model().is_builtin(name) {
                     diagnostic.set_fix(Fix::automatic(
                         Edit::range_replacement((*name).to_string(), expr.range()),
-                        Some("Replace with standard type".to_string()),
+                        "Replace with standard type".to_string(),
                     ));
                 }
             }
@@ -73,7 +73,7 @@ pub(crate) fn use_pep585_annotation(
                     Ok(Fix::suggested_edits(
                         import_edit,
                         [reference_edit],
-                        Some("Replace with standard type".to_string()),
+                        "Replace with standard type".to_string(),
                     ))
                 });
             }

@@ -187,7 +187,7 @@ def fibonacci(n):
         )
         .with_fix(Fix::suggested(
             Edit::range_deletion(TextRange::new(TextSize::from(0), TextSize::from(10))),
-            Some("Remove unused import".to_string()),
+            "Remove unused import `os`".to_string(),
         ));
 
         let fib_source = SourceFileBuilder::new("fib.py", fib).finish();
@@ -200,7 +200,7 @@ def fibonacci(n):
         )
         .with_fix(Fix::suggested(
             Edit::deletion(TextSize::from(94), TextSize::from(99)),
-            Some("Remove unused variable".to_string()),
+            "Remove unused variable `x`".to_string(),
         ));
 
         let file_2 = r#"if a == 1: pass"#;
