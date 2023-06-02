@@ -16,7 +16,7 @@ impl AlwaysAutofixableViolation for UnicodeKindPrefix {
         format!("Remove unicode literals from strings")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove unicode prefix".to_string()
     }
 }

@@ -51,7 +51,7 @@ impl AlwaysAutofixableViolation for PytestFixtureIncorrectParenthesesStyle {
         format!("Use `@pytest.fixture{expected}` over `@pytest.fixture{actual}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let PytestFixtureIncorrectParenthesesStyle { expected, .. } = self;
         match expected {
             Parentheses::None => "Remove parentheses".to_string(),
@@ -82,7 +82,7 @@ impl AlwaysAutofixableViolation for PytestExtraneousScopeFunction {
         format!("`scope='function'` is implied in `@pytest.fixture()`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove implied `scope` argument".to_string()
     }
 }
@@ -161,7 +161,7 @@ impl AlwaysAutofixableViolation for PytestUselessYieldFixture {
         format!("No teardown in fixture `{name}`, use `return` instead of `yield`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace `yield` with `return`".to_string()
     }
 }
@@ -175,7 +175,7 @@ impl AlwaysAutofixableViolation for PytestErroneousUseFixturesOnFixture {
         format!("`pytest.mark.usefixtures` has no effect on fixtures")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove `pytest.mark.usefixtures`".to_string()
     }
 }
@@ -189,7 +189,7 @@ impl AlwaysAutofixableViolation for PytestUnnecessaryAsyncioMarkOnFixture {
         format!("`pytest.mark.asyncio` is unnecessary for fixtures")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove `pytest.mark.asyncio`".to_string()
     }
 }

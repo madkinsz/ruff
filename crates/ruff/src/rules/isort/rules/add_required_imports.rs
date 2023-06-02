@@ -46,7 +46,7 @@ impl AlwaysAutofixableViolation for MissingRequiredImport {
         format!("Missing required import: `{name}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let MissingRequiredImport(name) = self;
         format!("Insert required import: `{name}`")
     }

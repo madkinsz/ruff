@@ -50,7 +50,7 @@ impl Violation for UnnecessaryComprehensionAnyAll {
         format!("Unnecessary list comprehension.")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Remove unnecessary list comprehension".to_string())
     }
 }

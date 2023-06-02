@@ -41,7 +41,7 @@ impl Violation for ManualFromImport {
         format!("Use `from {module} import {name}` in lieu of alias")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let ManualFromImport { module, name } = self;
         Some(format!("Replace with `from {module} import {name}`"))
     }

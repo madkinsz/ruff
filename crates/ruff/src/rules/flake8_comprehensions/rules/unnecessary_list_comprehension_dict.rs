@@ -34,7 +34,7 @@ impl AlwaysAutofixableViolation for UnnecessaryListComprehensionDict {
         format!("Unnecessary `list` comprehension (rewrite as a `dict` comprehension)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite as a `dict` comprehension".to_string()
     }
 }

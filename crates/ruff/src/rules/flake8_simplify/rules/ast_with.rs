@@ -55,7 +55,7 @@ impl Violation for MultipleWithStatements {
         )
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Combine `with` statements".to_string())
     }
 }

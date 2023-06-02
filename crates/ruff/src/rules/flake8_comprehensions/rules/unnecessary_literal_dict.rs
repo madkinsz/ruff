@@ -41,7 +41,7 @@ impl AlwaysAutofixableViolation for UnnecessaryLiteralDict {
         format!("Unnecessary `{obj_type}` literal (rewrite as a `dict` literal)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite as a `dict` literal".to_string()
     }
 }

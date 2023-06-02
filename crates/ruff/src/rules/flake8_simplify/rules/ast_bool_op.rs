@@ -59,7 +59,7 @@ impl Violation for DuplicateIsinstanceCall {
         }
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let DuplicateIsinstanceCall { name } = self;
 
         Some(if let Some(name) = name {
@@ -82,7 +82,7 @@ impl AlwaysAutofixableViolation for CompareWithTuple {
         format!("Use `{replacement}` instead of multiple equality comparisons")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let CompareWithTuple { replacement } = self;
         format!("Replace with `{replacement}`")
     }
@@ -100,7 +100,7 @@ impl AlwaysAutofixableViolation for ExprAndNotExpr {
         format!("Use `False` instead of `{name} and not {name}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `False`".to_string()
     }
 }
@@ -117,7 +117,7 @@ impl AlwaysAutofixableViolation for ExprOrNotExpr {
         format!("Use `True` instead of `{name} or not {name}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `True`".to_string()
     }
 }
@@ -175,7 +175,7 @@ impl AlwaysAutofixableViolation for ExprOrTrue {
         format!("Use `{expr}` instead of `{replaced}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let ExprOrTrue { expr, .. } = self;
         format!("Replace with `{expr}`")
     }
@@ -227,7 +227,7 @@ impl AlwaysAutofixableViolation for ExprAndFalse {
         format!("Use `{expr}` instead of `{replaced}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let ExprAndFalse { expr, .. } = self;
         format!("Replace with `{expr}`")
     }

@@ -21,7 +21,7 @@ impl AlwaysAutofixableViolation for RedundantTupleInExceptionHandler {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let RedundantTupleInExceptionHandler { name } = self;
         format!("Replace with `except {name}`")
     }

@@ -15,7 +15,7 @@ impl AlwaysAutofixableViolation for UnpackedListComprehension {
         format!("Replace unpacked list comprehension with a generator expression")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with generator expression".to_string()
     }
 }

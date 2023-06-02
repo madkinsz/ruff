@@ -18,7 +18,7 @@ impl AlwaysAutofixableViolation for TypedArgumentDefaultInStub {
         format!("Only simple default values allowed for typed arguments")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace default value with `...`".to_string()
     }
 }
@@ -32,7 +32,7 @@ impl AlwaysAutofixableViolation for ArgumentDefaultInStub {
         format!("Only simple default values allowed for arguments")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace default value with `...`".to_string()
     }
 }
@@ -46,7 +46,7 @@ impl AlwaysAutofixableViolation for AssignmentDefaultInStub {
         format!("Only simple default values allowed for assignments")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace default value with `...`".to_string()
     }
 }

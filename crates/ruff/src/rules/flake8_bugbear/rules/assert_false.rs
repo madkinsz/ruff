@@ -16,7 +16,7 @@ impl AlwaysAutofixableViolation for AssertFalse {
         format!("Do not `assert False` (`python -O` removes these calls), raise `AssertionError()`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace `assert False`".to_string()
     }
 }

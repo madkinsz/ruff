@@ -22,7 +22,7 @@ impl Violation for UncapitalizedEnvironmentVariables {
         format!("Use capitalized environment variable `{expected}` instead of `{original}`")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let UncapitalizedEnvironmentVariables { expected, original } = self;
         Some(format!("Replace `{original}` with `{expected}`"))
     }
@@ -62,7 +62,7 @@ impl AlwaysAutofixableViolation for DictGetWithNoneDefault {
         format!("Use `{expected}` instead of `{original}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let DictGetWithNoneDefault { expected, original } = self;
         format!("Replace `{original}` with `{expected}`")
     }

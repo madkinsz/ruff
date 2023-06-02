@@ -27,7 +27,7 @@ impl AlwaysAutofixableViolation for OutdatedVersionBlock {
         format!("Version block is outdated for minimum Python version")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove outdated version block".to_string()
     }
 }

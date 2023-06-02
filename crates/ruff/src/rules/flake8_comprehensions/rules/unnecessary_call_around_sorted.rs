@@ -44,7 +44,7 @@ impl AlwaysAutofixableViolation for UnnecessaryCallAroundSorted {
         format!("Unnecessary `{func}` call around `sorted()`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let UnnecessaryCallAroundSorted { func } = self;
         format!("Remove unnecessary `{func}` call")
     }

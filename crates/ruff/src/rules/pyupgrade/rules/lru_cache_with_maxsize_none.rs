@@ -17,7 +17,7 @@ impl AlwaysAutofixableViolation for LRUCacheWithMaxsizeNone {
         format!("Use `@functools.cache` instead of `@functools.lru_cache(maxsize=None)`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite with `@functools.cache".to_string()
     }
 }

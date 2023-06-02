@@ -46,7 +46,7 @@ impl Violation for CollapsibleIf {
         format!("Use a single `if` statement instead of nested `if` statements")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Combine `if` statements using `and`".to_string())
     }
 }
@@ -65,7 +65,7 @@ impl Violation for NeedlessBool {
         format!("Return the condition `{condition}` directly")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let NeedlessBool { condition } = self;
         Some(format!("Replace with `return {condition}`"))
     }
@@ -115,7 +115,7 @@ impl Violation for IfElseBlockInsteadOfIfExp {
         format!("Use ternary operator `{contents}` instead of `if`-`else`-block")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let IfElseBlockInsteadOfIfExp { contents } = self;
         Some(format!("Replace `if`-`else`-block with `{contents}`"))
     }
@@ -165,7 +165,7 @@ impl Violation for IfElseBlockInsteadOfDictGet {
         format!("Use `{contents}` instead of an `if` block")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let IfElseBlockInsteadOfDictGet { contents } = self;
         Some(format!("Replace with `{contents}`"))
     }

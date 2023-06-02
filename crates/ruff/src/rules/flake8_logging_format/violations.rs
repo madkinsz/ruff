@@ -50,7 +50,7 @@ impl AlwaysAutofixableViolation for LoggingWarn {
         format!("Logging statement uses `warn` instead of `warning`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Convert to `warn`".to_string()
     }
 }

@@ -18,7 +18,7 @@ impl AlwaysAutofixableViolation for ExtraneousParentheses {
         format!("Avoid extraneous parentheses")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove extraneous parentheses".to_string()
     }
 }

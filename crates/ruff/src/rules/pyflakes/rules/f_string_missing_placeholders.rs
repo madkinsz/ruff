@@ -43,7 +43,7 @@ impl AlwaysAutofixableViolation for FStringMissingPlaceholders {
         format!("f-string without any placeholders")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove extraneous `f` prefix".to_string()
     }
 }

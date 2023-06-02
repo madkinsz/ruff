@@ -48,7 +48,7 @@ impl Violation for UnsortedImports {
         format!("Import block is un-sorted or un-formatted")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Organize imports".to_string())
     }
 }

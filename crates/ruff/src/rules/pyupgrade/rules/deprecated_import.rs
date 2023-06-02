@@ -62,7 +62,7 @@ impl Violation for DeprecatedImport {
         }
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         if let Deprecation::WithoutRename(WithoutRename { target, .. }) = &self.deprecation {
             Some(format!("Import from `{target}`"))
         } else {

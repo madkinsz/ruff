@@ -17,7 +17,7 @@ impl Violation for OpenAlias {
         format!("Use builtin `open`")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Replace with builtin `open`".to_string())
     }
 }

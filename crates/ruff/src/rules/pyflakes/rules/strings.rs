@@ -63,7 +63,7 @@ impl AlwaysAutofixableViolation for PercentFormatExtraNamedArguments {
         format!("`%`-format string has unused named argument(s): {message}")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let PercentFormatExtraNamedArguments { missing } = self;
         let message = missing.join(", ");
         format!("Remove extra named arguments: {message}")
@@ -157,7 +157,7 @@ impl AlwaysAutofixableViolation for StringDotFormatExtraNamedArguments {
         format!("`.format` call has unused named argument(s): {message}")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let StringDotFormatExtraNamedArguments { missing } = self;
         let message = missing.join(", ");
         format!("Remove extra named arguments: {message}")
@@ -177,7 +177,7 @@ impl AlwaysAutofixableViolation for StringDotFormatExtraPositionalArguments {
         format!("`.format` call has unused arguments at position(s): {message}")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let StringDotFormatExtraPositionalArguments { missing } = self;
         let message = missing.join(", ");
         format!("Remove extra positional arguments at position(s): {message}")

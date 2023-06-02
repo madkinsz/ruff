@@ -46,7 +46,7 @@ impl AlwaysAutofixableViolation for UnnecessaryCollectionCall {
         format!("Unnecessary `{obj_type}` call (rewrite as a literal)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite as a literal".to_string()
     }
 }

@@ -32,7 +32,7 @@ impl AlwaysAutofixableViolation for MissingWhitespace {
         format!("Missing whitespace after '{token}'")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let token = self.token_text();
         format!("Added missing whitespace after '{token}'")
     }

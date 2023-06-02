@@ -30,7 +30,7 @@ impl AlwaysAutofixableViolation for UselessImportAlias {
         format!("Import alias does not rename original package")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove import alias".to_string()
     }
 }

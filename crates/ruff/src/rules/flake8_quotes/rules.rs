@@ -47,7 +47,7 @@ impl AlwaysAutofixableViolation for BadQuotesInlineString {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let BadQuotesInlineString { quote } = self;
         match quote {
             Quote::Single => "Replace double quotes with single quotes".to_string(),
@@ -96,7 +96,7 @@ impl AlwaysAutofixableViolation for BadQuotesMultilineString {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let BadQuotesMultilineString { quote } = self;
         match quote {
             Quote::Single => "Replace double multiline quotes with single quotes".to_string(),
@@ -144,7 +144,7 @@ impl AlwaysAutofixableViolation for BadQuotesDocstring {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let BadQuotesDocstring { quote } = self;
         match quote {
             Quote::Single => "Replace double quotes docstring with single quotes".to_string(),
@@ -179,7 +179,7 @@ impl AlwaysAutofixableViolation for AvoidableEscapedQuote {
         format!("Change outer quotes to avoid escaping inner quotes")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Change outer quotes to avoid escaping inner quotes".to_string()
     }
 }

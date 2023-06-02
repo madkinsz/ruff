@@ -186,7 +186,7 @@ impl AlwaysAutofixableViolation for InvalidTodoCapitalization {
         format!("Invalid TODO capitalization: `{tag}` should be `TODO`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let InvalidTodoCapitalization { tag } = self;
         format!("Replace `{tag}` with `TODO`")
     }

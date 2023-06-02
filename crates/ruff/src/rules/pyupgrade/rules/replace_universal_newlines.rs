@@ -17,7 +17,7 @@ impl AlwaysAutofixableViolation for ReplaceUniversalNewlines {
         format!("`universal_newlines` is deprecated, use `text`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `text` keyword argument".to_string()
     }
 }

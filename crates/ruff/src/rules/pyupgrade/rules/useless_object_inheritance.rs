@@ -21,7 +21,7 @@ impl AlwaysAutofixableViolation for UselessObjectInheritance {
         format!("Class `{name}` inherits from `object`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove `object` inheritance".to_string()
     }
 }

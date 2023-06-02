@@ -144,7 +144,7 @@ impl AlwaysAutofixableViolation for MissingTrailingComma {
         format!("Trailing comma missing")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add trailing comma".to_string()
     }
 }
@@ -215,7 +215,7 @@ impl AlwaysAutofixableViolation for ProhibitedTrailingComma {
         format!("Trailing comma prohibited")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove trailing comma".to_string()
     }
 }

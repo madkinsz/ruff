@@ -34,7 +34,7 @@ impl AlwaysAutofixableViolation for InvalidCharacterBackspace {
         format!("Invalid unescaped character backspace, use \"\\b\" instead")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with escape sequence".to_string()
     }
 }
@@ -67,7 +67,7 @@ impl AlwaysAutofixableViolation for InvalidCharacterSub {
         format!("Invalid unescaped character SUB, use \"\\x1A\" instead")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with escape sequence".to_string()
     }
 }
@@ -100,7 +100,7 @@ impl AlwaysAutofixableViolation for InvalidCharacterEsc {
         format!("Invalid unescaped character ESC, use \"\\x1B\" instead")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with escape sequence".to_string()
     }
 }
@@ -133,7 +133,7 @@ impl AlwaysAutofixableViolation for InvalidCharacterNul {
         format!("Invalid unescaped character NUL, use \"\\0\" instead")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with escape sequence".to_string()
     }
 }
@@ -165,7 +165,7 @@ impl AlwaysAutofixableViolation for InvalidCharacterZeroWidthSpace {
         format!("Invalid unescaped character zero-width-space, use \"\\u200B\" instead")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with escape sequence".to_string()
     }
 }

@@ -65,7 +65,7 @@ impl Violation for UnusedLoopControlVariable {
         }
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let UnusedLoopControlVariable { rename, name, .. } = self;
 
         rename

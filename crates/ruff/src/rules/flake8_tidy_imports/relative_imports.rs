@@ -74,7 +74,7 @@ impl Violation for RelativeImports {
         }
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let RelativeImports { strictness } = self;
         Some(match strictness {
             Strictness::Parents => {

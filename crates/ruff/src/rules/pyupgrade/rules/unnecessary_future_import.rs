@@ -28,7 +28,7 @@ impl AlwaysAutofixableViolation for UnnecessaryFutureImport {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove unnecessary `__future__` import".to_string()
     }
 }

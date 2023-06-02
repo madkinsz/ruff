@@ -31,7 +31,7 @@ impl AlwaysAutofixableViolation for InvalidEscapeSequence {
         format!("Invalid escape sequence: `\\{char}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add backslash to escape sequence".to_string()
     }
 }

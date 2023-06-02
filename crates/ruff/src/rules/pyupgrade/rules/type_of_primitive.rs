@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for TypeOfPrimitive {
         format!("Use `{}` instead of `type(...)`", primitive.builtin())
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let TypeOfPrimitive { primitive } = self;
         format!("Replace `type(...)` with `{}`", primitive.builtin())
     }

@@ -26,7 +26,7 @@ impl AlwaysAutofixableViolation for InDictKeys {
         format!("Use `{key} in {dict}` instead of `{key} in {dict}.keys()`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let InDictKeys { key, dict } = self;
         format!("Convert to `{key} in {dict}`")
     }

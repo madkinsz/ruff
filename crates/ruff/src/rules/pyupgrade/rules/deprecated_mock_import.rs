@@ -33,7 +33,7 @@ impl AlwaysAutofixableViolation for DeprecatedMockImport {
         format!("`mock` is deprecated, use `unittest.mock`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let DeprecatedMockImport { reference_type } = self;
         match reference_type {
             MockReference::Import => "Import from `unittest.mock` instead".to_string(),

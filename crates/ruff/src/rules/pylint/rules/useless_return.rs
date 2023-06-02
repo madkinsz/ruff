@@ -40,7 +40,7 @@ impl AlwaysAutofixableViolation for UselessReturn {
         format!("Useless `return` statement at end of function")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!("Remove useless `return` statement")
     }
 }

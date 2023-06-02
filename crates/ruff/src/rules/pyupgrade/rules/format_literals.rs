@@ -24,7 +24,7 @@ impl Violation for FormatLiterals {
         format!("Use implicit references for positional format fields")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Remove explicit positional indices".to_string())
     }
 }

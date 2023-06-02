@@ -53,7 +53,7 @@ impl AlwaysAutofixableViolation for UnnecessaryLiteralWithinListCall {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let UnnecessaryLiteralWithinListCall { literal } = self;
         {
             if literal == "list" {

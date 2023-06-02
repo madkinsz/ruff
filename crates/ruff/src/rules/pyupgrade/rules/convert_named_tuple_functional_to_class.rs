@@ -26,7 +26,7 @@ impl Violation for ConvertNamedTupleFunctionalToClass {
         format!("Convert `{name}` from `NamedTuple` functional to class syntax")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let ConvertNamedTupleFunctionalToClass { name } = self;
 
         Some(format!("Convert `{name}` to class syntax"))

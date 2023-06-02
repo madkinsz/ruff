@@ -27,7 +27,7 @@ impl AlwaysAutofixableViolation for UnnecessaryEncodeUTF8 {
         format!("Unnecessary call to `encode` as UTF-8")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         match self.reason {
             Reason::BytesLiteral => "Rewrite as bytes literal".to_string(),
             Reason::DefaultArgument => "Remove unnecessary encoding argument".to_string(),

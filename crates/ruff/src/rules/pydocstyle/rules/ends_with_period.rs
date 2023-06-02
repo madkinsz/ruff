@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for EndsInPeriod {
         format!("First line should end with a period")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add period".to_string()
     }
 }

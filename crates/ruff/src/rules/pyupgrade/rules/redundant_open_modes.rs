@@ -30,7 +30,7 @@ impl AlwaysAutofixableViolation for RedundantOpenModes {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let RedundantOpenModes { replacement } = self;
         match replacement {
             None => "Remove open mode parameters".to_string(),

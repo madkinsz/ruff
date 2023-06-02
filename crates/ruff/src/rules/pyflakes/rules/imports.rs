@@ -44,7 +44,7 @@ impl Violation for UnusedImport {
         }
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let UnusedImport { name, multiple, .. } = self;
 
         Some(if *multiple {

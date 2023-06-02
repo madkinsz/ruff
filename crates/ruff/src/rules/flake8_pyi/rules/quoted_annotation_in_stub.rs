@@ -15,7 +15,7 @@ impl AlwaysAutofixableViolation for QuotedAnnotationInStub {
         format!("Quoted annotations should not be included in stubs")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove quotes".to_string()
     }
 }

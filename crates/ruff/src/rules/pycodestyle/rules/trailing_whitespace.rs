@@ -35,7 +35,7 @@ impl AlwaysAutofixableViolation for TrailingWhitespace {
         format!("Trailing whitespace")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove trailing whitespace".to_string()
     }
 }
@@ -69,7 +69,7 @@ impl AlwaysAutofixableViolation for BlankLineWithWhitespace {
         format!("Blank line contains whitespace")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove whitespace from blank line".to_string()
     }
 }

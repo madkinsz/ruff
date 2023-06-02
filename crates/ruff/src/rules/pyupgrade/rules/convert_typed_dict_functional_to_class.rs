@@ -27,7 +27,7 @@ impl Violation for ConvertTypedDictFunctionalToClass {
         format!("Convert `{name}` from `TypedDict` functional to class syntax")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let ConvertTypedDictFunctionalToClass { name, .. } = self;
         Some(format!("Convert `{name}` to class syntax"))
     }

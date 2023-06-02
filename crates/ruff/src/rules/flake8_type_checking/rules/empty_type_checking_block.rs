@@ -42,7 +42,7 @@ impl AlwaysAutofixableViolation for EmptyTypeCheckingBlock {
         format!("Found empty type-checking block")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!("Delete empty type-checking block")
     }
 }

@@ -56,7 +56,7 @@ impl Violation for UnnecessaryMap {
         }
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let UnnecessaryMap { obj_type } = self;
         Some(if obj_type == "generator" {
             format!("Replace `map` using a generator expression")

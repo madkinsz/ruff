@@ -57,7 +57,7 @@ impl AlwaysAutofixableViolation for UnnecessaryLiteralWithinDictCall {
         format!("Unnecessary `dict` {kind} passed to `dict()` (remove the outer call to `dict()`)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove outer `dict` call".to_string()
     }
 }

@@ -29,7 +29,7 @@ impl Violation for YodaConditions {
         }
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let YodaConditions { suggestion } = self;
         suggestion
             .as_ref()

@@ -35,7 +35,7 @@ impl AlwaysAutofixableViolation for NotInTest {
         format!("Test for membership should be `not in`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Convert to `not in`".to_string()
     }
 }
@@ -68,7 +68,7 @@ impl AlwaysAutofixableViolation for NotIsTest {
         format!("Test for object identity should be `is not`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Convert to `is not`".to_string()
     }
 }

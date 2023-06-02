@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for GetAttrWithConstant {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace `getattr` with attribute access".to_string()
     }
 }

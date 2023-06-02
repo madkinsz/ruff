@@ -19,7 +19,7 @@ impl AlwaysAutofixableViolation for ReplaceStdoutStderr {
         format!("Sending stdout and stderr to pipe is deprecated, use `capture_output`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `capture_output` keyword argument".to_string()
     }
 }

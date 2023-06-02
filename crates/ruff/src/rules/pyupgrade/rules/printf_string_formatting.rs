@@ -27,7 +27,7 @@ impl AlwaysAutofixableViolation for PrintfStringFormatting {
         format!("Use format specifiers instead of percent format")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with format specifiers".to_string()
     }
 }

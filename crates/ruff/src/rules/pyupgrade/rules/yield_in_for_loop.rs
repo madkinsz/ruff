@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for YieldInForLoop {
         format!("Replace `yield` over `for` loop with `yield from`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `yield from`".to_string()
     }
 }

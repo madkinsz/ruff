@@ -21,7 +21,7 @@ impl Violation for IfExprWithTrueFalse {
         format!("Use `bool({expr})` instead of `True if {expr} else False`")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let IfExprWithTrueFalse { expr } = self;
         Some(format!("Replace with `not {expr}"))
     }
@@ -39,7 +39,7 @@ impl AlwaysAutofixableViolation for IfExprWithFalseTrue {
         format!("Use `not {expr}` instead of `False if {expr} else True`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let IfExprWithFalseTrue { expr } = self;
         format!("Replace with `bool({expr})")
     }
@@ -64,7 +64,7 @@ impl AlwaysAutofixableViolation for IfExprWithTwistedArms {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let IfExprWithTwistedArms {
             expr_body,
             expr_else,

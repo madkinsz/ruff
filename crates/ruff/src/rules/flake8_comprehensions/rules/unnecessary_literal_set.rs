@@ -42,7 +42,7 @@ impl AlwaysAutofixableViolation for UnnecessaryLiteralSet {
         format!("Unnecessary `{obj_type}` literal (rewrite as a `set` literal)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite as a `set` literal".to_string()
     }
 }

@@ -26,7 +26,7 @@ impl AlwaysAutofixableViolation for FString {
         format!("Use f-string instead of `format` call")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Convert to f-string".to_string()
     }
 }

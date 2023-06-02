@@ -36,7 +36,7 @@ impl AlwaysAutofixableViolation for UnnecessaryGeneratorList {
         format!("Unnecessary generator (rewrite as a `list` comprehension)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite as a `list` comprehension".to_string()
     }
 }

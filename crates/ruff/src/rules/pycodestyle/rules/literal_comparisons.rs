@@ -62,7 +62,7 @@ impl AlwaysAutofixableViolation for NoneComparison {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let NoneComparison(op) = self;
         match op {
             EqCmpop::Eq => "Replace with `cond is None`".to_string(),
@@ -119,7 +119,7 @@ impl AlwaysAutofixableViolation for TrueFalseComparison {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let TrueFalseComparison(value, op) = self;
         match (value, op) {
             (true, EqCmpop::Eq) => "Replace with `cond is True`".to_string(),

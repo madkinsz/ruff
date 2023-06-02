@@ -57,7 +57,7 @@ impl Violation for RawStringInException {
         format!("Exception must not use a string literal, assign to variable first")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Assign to variable; remove string literal".to_string())
     }
 }
@@ -111,7 +111,7 @@ impl Violation for FStringInException {
         format!("Exception must not use an f-string literal, assign to variable first")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Assign to variable; remove f-string literal".to_string())
     }
 }
@@ -167,7 +167,7 @@ impl Violation for DotFormatInException {
         format!("Exception must not use a `.format()` string directly, assign to variable first")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Assign to variable; remove `.format()` string".to_string())
     }
 }

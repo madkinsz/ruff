@@ -15,7 +15,7 @@ impl AlwaysAutofixableViolation for TypingTextStrAlias {
         format!("`typing.Text` is deprecated, use `str`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `str`".to_string()
     }
 }

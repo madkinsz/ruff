@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for MultiLineSummaryFirstLine {
         format!("Multi-line docstring summary should start at the first line")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove whitespace after opening quotes".to_string()
     }
 }
@@ -34,7 +34,7 @@ impl AlwaysAutofixableViolation for MultiLineSummarySecondLine {
         format!("Multi-line docstring summary should start at the second line")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Insert line break and indentation after opening quotes".to_string()
     }
 }

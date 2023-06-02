@@ -31,7 +31,7 @@ impl AlwaysAutofixableViolation for AmbiguousUnicodeCharacterString {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let AmbiguousUnicodeCharacterString {
             confusable,
             representant,
@@ -64,7 +64,7 @@ impl AlwaysAutofixableViolation for AmbiguousUnicodeCharacterDocstring {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let AmbiguousUnicodeCharacterDocstring {
             confusable,
             representant,
@@ -97,7 +97,7 @@ impl AlwaysAutofixableViolation for AmbiguousUnicodeCharacterComment {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let AmbiguousUnicodeCharacterComment {
             confusable,
             representant,

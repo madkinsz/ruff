@@ -55,7 +55,7 @@ impl AlwaysAutofixableViolation for UnnecessaryReturnNone {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove explicit `return None`".to_string()
     }
 }
@@ -95,7 +95,7 @@ impl AlwaysAutofixableViolation for ImplicitReturnValue {
         format!("Do not implicitly `return None` in function able to return non-`None` value")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add explicit `None` return value".to_string()
     }
 }
@@ -133,7 +133,7 @@ impl AlwaysAutofixableViolation for ImplicitReturn {
         format!("Missing explicit `return` at the end of function able to return non-`None` value")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add explicit `return` statement".to_string()
     }
 }

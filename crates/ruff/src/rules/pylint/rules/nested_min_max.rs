@@ -51,7 +51,7 @@ impl Violation for NestedMinMax {
         format!("Nested `{}` calls can be flattened", self.func)
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let NestedMinMax { func } = self;
         Some(format!("Flatten nested `{func}` calls"))
     }

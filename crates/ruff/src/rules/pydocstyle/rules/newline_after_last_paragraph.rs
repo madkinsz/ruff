@@ -19,7 +19,7 @@ impl AlwaysAutofixableViolation for NewLineAfterLastParagraph {
         format!("Multi-line docstring closing quotes should be on a separate line")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Move closing quotes to new line".to_string()
     }
 }

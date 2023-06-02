@@ -27,7 +27,7 @@ impl AlwaysAutofixableViolation for CommentedOutCode {
         format!("Found commented-out code")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove commented-out code".to_string()
     }
 }

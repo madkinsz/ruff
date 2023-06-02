@@ -36,7 +36,7 @@ impl AlwaysAutofixableViolation for UnnecessaryGeneratorDict {
         format!("Unnecessary generator (rewrite as a `dict` comprehension)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite as a `dict` comprehension".to_string()
     }
 }

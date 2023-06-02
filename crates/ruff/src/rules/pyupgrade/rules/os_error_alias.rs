@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for OSErrorAlias {
         format!("Replace aliased errors with `OSError`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let OSErrorAlias { name } = self;
         match name {
             None => "Replace with builtin `OSError`".to_string(),

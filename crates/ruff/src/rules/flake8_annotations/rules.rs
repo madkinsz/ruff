@@ -297,7 +297,7 @@ impl AlwaysAutofixableViolation for MissingReturnTypeSpecialMethod {
         format!("Missing return type annotation for special method `{name}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add `None` return type".to_string()
     }
 }

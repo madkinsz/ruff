@@ -50,7 +50,7 @@ impl Violation for LambdaAssignment {
         format!("Do not assign a `lambda` expression, use a `def`")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let LambdaAssignment { name } = self;
         Some(format!("Rewrite `{name}` as a `def`"))
     }

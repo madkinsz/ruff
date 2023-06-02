@@ -34,7 +34,7 @@ impl AlwaysAutofixableViolation for UnnecessaryListComprehensionSet {
         format!("Unnecessary `list` comprehension (rewrite as a `set` comprehension)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Rewrite as a `set` comprehension".to_string()
     }
 }

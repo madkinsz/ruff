@@ -42,7 +42,7 @@ impl AlwaysAutofixableViolation for UnnecessaryComprehension {
         format!("Unnecessary `{obj_type}` comprehension (rewrite using `{obj_type}()`)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let UnnecessaryComprehension { obj_type } = self;
         format!("Rewrite using `{obj_type}()`")
     }

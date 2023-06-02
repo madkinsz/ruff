@@ -15,7 +15,7 @@ impl AlwaysAutofixableViolation for UTF8EncodingDeclaration {
         format!("UTF-8 encoding declaration is unnecessary")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove unnecessary coding comment".to_string()
     }
 }

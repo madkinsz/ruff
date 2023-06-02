@@ -19,7 +19,7 @@ impl Violation for NonPEP604Annotation {
         format!("Use `X | Y` for type annotations")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Convert to `X | Y`".to_string())
     }
 }

@@ -29,7 +29,7 @@ impl AlwaysAutofixableViolation for MissingNewlineAtEndOfFile {
         format!("No newline at end of file")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add trailing newline".to_string()
     }
 }

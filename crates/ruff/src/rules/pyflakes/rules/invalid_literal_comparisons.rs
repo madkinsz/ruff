@@ -42,7 +42,7 @@ impl AlwaysAutofixableViolation for IsLiteral {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let IsLiteral { cmpop } = self;
         match cmpop {
             IsCmpop::Is => "Replace `is` with `==`".to_string(),

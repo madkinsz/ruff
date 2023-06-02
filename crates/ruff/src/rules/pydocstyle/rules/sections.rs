@@ -33,7 +33,7 @@ impl AlwaysAutofixableViolation for SectionNotOverIndented {
         format!("Section is over-indented (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let SectionNotOverIndented { name } = self;
         format!("Remove over-indentation from \"{name}\"")
     }
@@ -51,7 +51,7 @@ impl AlwaysAutofixableViolation for SectionUnderlineNotOverIndented {
         format!("Section underline is over-indented (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let SectionUnderlineNotOverIndented { name } = self;
         format!("Remove over-indentation from \"{name}\" underline")
     }
@@ -69,7 +69,7 @@ impl AlwaysAutofixableViolation for CapitalizeSectionName {
         format!("Section name should be properly capitalized (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let CapitalizeSectionName { name } = self;
         format!("Capitalize \"{name}\"")
     }
@@ -87,7 +87,7 @@ impl AlwaysAutofixableViolation for NewLineAfterSectionName {
         format!("Section name should end with a newline (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let NewLineAfterSectionName { name } = self;
         format!("Add newline after \"{name}\"")
     }
@@ -105,7 +105,7 @@ impl AlwaysAutofixableViolation for DashedUnderlineAfterSection {
         format!("Missing dashed underline after section (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let DashedUnderlineAfterSection { name } = self;
         format!("Add dashed line under \"{name}\"")
     }
@@ -123,7 +123,7 @@ impl AlwaysAutofixableViolation for SectionUnderlineAfterName {
         format!("Section underline should be in the line following the section's name (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let SectionUnderlineAfterName { name } = self;
         format!("Add underline to \"{name}\"")
     }
@@ -141,7 +141,7 @@ impl AlwaysAutofixableViolation for SectionUnderlineMatchesSectionLength {
         format!("Section underline should match the length of its name (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let SectionUnderlineMatchesSectionLength { name } = self;
         format!("Adjust underline length to match \"{name}\"")
     }
@@ -159,7 +159,7 @@ impl AlwaysAutofixableViolation for NoBlankLineAfterSection {
         format!("Missing blank line after section (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let NoBlankLineAfterSection { name } = self;
         format!("Add blank line after \"{name}\"")
     }
@@ -177,7 +177,7 @@ impl AlwaysAutofixableViolation for NoBlankLineBeforeSection {
         format!("Missing blank line before section (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let NoBlankLineBeforeSection { name } = self;
         format!("Add blank line before \"{name}\"")
     }
@@ -195,7 +195,7 @@ impl AlwaysAutofixableViolation for BlankLineAfterLastSection {
         format!("Missing blank line after last section (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let BlankLineAfterLastSection { name } = self;
         format!("Add blank line after \"{name}\"")
     }
@@ -226,7 +226,7 @@ impl AlwaysAutofixableViolation for SectionNameEndsInColon {
         format!("Section name should end with a colon (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let SectionNameEndsInColon { name } = self;
         format!("Add colon to \"{name}\"")
     }
@@ -263,7 +263,7 @@ impl AlwaysAutofixableViolation for BlankLinesBetweenHeaderAndContent {
         format!("No blank lines allowed between a section header and its content (\"{name}\")")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove blank line(s)".to_string()
     }
 }

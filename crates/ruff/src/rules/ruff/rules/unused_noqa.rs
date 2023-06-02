@@ -89,7 +89,7 @@ impl AlwaysAutofixableViolation for UnusedNOQA {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove unused `noqa` directive".to_string()
     }
 }

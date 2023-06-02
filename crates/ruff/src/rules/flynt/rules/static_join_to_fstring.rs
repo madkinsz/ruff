@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for StaticJoinToFString {
         format!("Consider `{expr}` instead of string join")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let StaticJoinToFString { expr } = self;
         format!("Replace with `{expr}`")
     }

@@ -20,7 +20,7 @@ impl AlwaysAutofixableViolation for EndsInPunctuation {
         format!("First line should end with a period, question mark, or exclamation point")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add closing punctuation".to_string()
     }
 }

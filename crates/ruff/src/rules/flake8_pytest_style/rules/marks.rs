@@ -31,7 +31,7 @@ impl AlwaysAutofixableViolation for PytestIncorrectMarkParenthesesStyle {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Add/remove parentheses".to_string()
     }
 }
@@ -45,7 +45,7 @@ impl AlwaysAutofixableViolation for PytestUseFixturesWithoutParameters {
         format!("Useless `pytest.mark.usefixtures` without parameters")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove `usefixtures` decorator or pass parameters".to_string()
     }
 }

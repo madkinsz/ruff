@@ -93,7 +93,7 @@ impl AlwaysAutofixableViolation for UselessSemicolon {
         format!("Statement ends with an unnecessary semicolon")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!("Remove unnecessary semicolon")
     }
 }

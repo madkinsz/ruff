@@ -36,7 +36,7 @@ impl AlwaysAutofixableViolation for NativeLiterals {
         format!("Unnecessary call to `{literal_type}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let NativeLiterals { literal_type } = self;
         format!("Replace with `{literal_type}`")
     }

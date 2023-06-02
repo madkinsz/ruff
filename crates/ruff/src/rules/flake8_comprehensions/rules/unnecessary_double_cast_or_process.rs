@@ -57,7 +57,7 @@ impl AlwaysAutofixableViolation for UnnecessaryDoubleCastOrProcess {
         format!("Unnecessary `{inner}` call within `{outer}()`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let UnnecessaryDoubleCastOrProcess { inner, .. } = self;
         format!("Remove the inner `{inner}` call")
     }

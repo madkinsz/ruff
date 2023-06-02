@@ -21,7 +21,7 @@ impl AlwaysAutofixableViolation for NegateEqualOp {
         format!("Use `{left} != {right}` instead of `not {left} == {right}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `!=` operator".to_string()
     }
 }
@@ -39,7 +39,7 @@ impl AlwaysAutofixableViolation for NegateNotEqualOp {
         format!("Use `{left} == {right}` instead of `not {left} != {right}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `==` operator".to_string()
     }
 }
@@ -56,7 +56,7 @@ impl AlwaysAutofixableViolation for DoubleNegation {
         format!("Use `{expr}` instead of `not (not {expr})`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let DoubleNegation { expr } = self;
         format!("Replace with `{expr}`")
     }

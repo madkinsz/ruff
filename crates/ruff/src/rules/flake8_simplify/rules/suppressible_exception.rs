@@ -26,7 +26,7 @@ impl Violation for SuppressibleException {
         format!("Use `contextlib.suppress({exception})` instead of `try`-`except`-`pass`")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let SuppressibleException { exception, .. } = self;
         Some(format!("Replace with `contextlib.suppress({exception})`"))
     }

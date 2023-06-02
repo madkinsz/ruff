@@ -41,7 +41,7 @@ impl AlwaysAutofixableViolation for ExplicitFStringTypeConversion {
         format!("Use conversion in f-string")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace f-string function call with conversion".to_string()
     }
 }

@@ -15,7 +15,7 @@ impl AlwaysAutofixableViolation for DeprecatedCElementTree {
         format!("`cElementTree` is deprecated, use `ElementTree`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `ElementTree`".to_string()
     }
 }

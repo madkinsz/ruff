@@ -43,7 +43,7 @@ impl Violation for PandasUseOfInplaceArgument {
         format!("`inplace=True` should be avoided; it has inconsistent behavior")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Assign to variable; remove `inplace` arg".to_string())
     }
 }

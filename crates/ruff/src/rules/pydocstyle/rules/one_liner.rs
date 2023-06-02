@@ -18,7 +18,7 @@ impl Violation for FitsOnOneLine {
         format!("One-line docstring should fit on one line")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Reformat to one line".to_string())
     }
 }

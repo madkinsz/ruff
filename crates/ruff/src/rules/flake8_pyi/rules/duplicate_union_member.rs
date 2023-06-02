@@ -19,7 +19,7 @@ impl AlwaysAutofixableViolation for DuplicateUnionMember {
         format!("Duplicate union member `{}`", self.duplicate_name)
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!("Remove duplicate union member `{}`", self.duplicate_name)
     }
 }

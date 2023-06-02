@@ -16,7 +16,7 @@ impl AlwaysAutofixableViolation for UnnecessaryParenOnRaiseException {
         format!("Unnecessary parentheses on raised exception")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!("Remove unnecessary parentheses")
     }
 }

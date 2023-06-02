@@ -158,7 +158,7 @@ Source with applied fixes:
                 }
             }
 
-            assert!(!(fixable && diagnostic.kind.suggestion.is_none()), "Diagnostic emitted by {rule:?} is fixable but `Violation::autofix_title` returns `None`.`");
+            assert!(!(fixable && diagnostic.kind.suggestion.is_none()), "Diagnostic emitted by {rule:?} is fixable but `Violation::advice` returns `None`.`");
 
             // Not strictly necessary but adds some coverage for this code path
             let noqa = directives.noqa_line_for.resolve(diagnostic.start());

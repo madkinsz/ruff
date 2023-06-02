@@ -24,7 +24,7 @@ impl Violation for NonPEP585Annotation {
         format!("Use `{to}` instead of `{from}` for type annotation")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let NonPEP585Annotation { to, .. } = self;
         Some(format!("Replace with `{to}`"))
     }

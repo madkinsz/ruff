@@ -61,7 +61,7 @@ impl Violation for PytestCompositeAssertion {
         format!("Assertion should be broken down into multiple parts")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Break down assertion into multiple parts".to_string())
     }
 }
@@ -105,7 +105,7 @@ impl Violation for PytestUnittestAssertion {
         format!("Use a regular `assert` instead of unittest-style `{assertion}`")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let PytestUnittestAssertion { assertion } = self;
         Some(format!("Replace `{assertion}(...)` with `assert ...`"))
     }

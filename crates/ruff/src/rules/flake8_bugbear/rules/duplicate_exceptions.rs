@@ -42,7 +42,7 @@ impl AlwaysAutofixableViolation for DuplicateHandlerException {
         }
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "De-duplicate exceptions".to_string()
     }
 }

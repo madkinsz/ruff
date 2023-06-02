@@ -57,7 +57,7 @@ impl Violation for UnusedVariable {
         format!("Local variable `{name}` is assigned to but never used")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let UnusedVariable { name } = self;
         Some(format!("Remove assignment to unused variable `{name}`"))
     }

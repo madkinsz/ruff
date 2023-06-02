@@ -15,7 +15,7 @@ impl AlwaysAutofixableViolation for RaiseNotImplemented {
         format!("`raise NotImplemented` should be `raise NotImplementedError`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Use `raise NotImplementedError`".to_string()
     }
 }

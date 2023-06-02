@@ -14,7 +14,7 @@ impl AlwaysAutofixableViolation for ShebangLeadingWhitespace {
         format!("Avoid whitespace before shebang")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!("Remove whitespace before shebang")
     }
 }

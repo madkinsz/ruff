@@ -21,7 +21,7 @@ impl AlwaysAutofixableViolation for OneBlankLineBeforeClass {
         format!("1 blank line required before class docstring")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Insert 1 blank line before class docstring".to_string()
     }
 }
@@ -37,7 +37,7 @@ impl AlwaysAutofixableViolation for OneBlankLineAfterClass {
         format!("1 blank line required after class docstring")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Insert 1 blank line after class docstring".to_string()
     }
 }
@@ -53,7 +53,7 @@ impl AlwaysAutofixableViolation for BlankLineBeforeClass {
         format!("No blank lines allowed before class docstring")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove blank line(s) before class docstring".to_string()
     }
 }

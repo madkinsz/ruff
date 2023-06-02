@@ -21,7 +21,7 @@ impl AlwaysAutofixableViolation for SetAttrWithConstant {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace `setattr` with assignment".to_string()
     }
 }

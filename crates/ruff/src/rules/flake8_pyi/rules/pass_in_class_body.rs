@@ -18,7 +18,7 @@ impl AlwaysAutofixableViolation for PassInClassBody {
         format!("Class body must not contain `pass`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!("Remove unnecessary `pass`")
     }
 }

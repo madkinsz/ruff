@@ -39,7 +39,7 @@ impl Violation for EllipsisInNonEmptyClassBody {
         format!("Non-empty class body must not contain `...`")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         Some("Remove unnecessary `...`".to_string())
     }
 }

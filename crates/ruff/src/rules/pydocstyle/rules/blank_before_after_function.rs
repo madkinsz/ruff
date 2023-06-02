@@ -24,7 +24,7 @@ impl AlwaysAutofixableViolation for NoBlankLineBeforeFunction {
         format!("No blank lines allowed before function docstring (found {num_lines})")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove blank line(s) before function docstring".to_string()
     }
 }
@@ -41,7 +41,7 @@ impl AlwaysAutofixableViolation for NoBlankLineAfterFunction {
         format!("No blank lines allowed after function docstring (found {num_lines})")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove blank line(s) after function docstring".to_string()
     }
 }

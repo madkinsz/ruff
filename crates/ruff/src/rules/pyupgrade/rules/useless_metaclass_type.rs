@@ -19,7 +19,7 @@ impl AlwaysAutofixableViolation for UselessMetaclassType {
         format!("`__metaclass__ = type` is implied")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove `__metaclass__ = type`".to_string()
     }
 }

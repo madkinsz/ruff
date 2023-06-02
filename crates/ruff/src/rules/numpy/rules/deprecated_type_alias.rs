@@ -40,7 +40,7 @@ impl AlwaysAutofixableViolation for NumpyDeprecatedTypeAlias {
         format!("Type alias `np.{type_name}` is deprecated, replace with builtin type")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let NumpyDeprecatedTypeAlias { type_name } = self;
         format!("Replace `np.{type_name}` with builtin type")
     }

@@ -45,7 +45,7 @@ impl AlwaysAutofixableViolation for NonPEP604Isinstance {
         format!("Use `X | Y` in `{}` call instead of `(X, Y)`", self.kind)
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Convert to `X | Y`".to_string()
     }
 }

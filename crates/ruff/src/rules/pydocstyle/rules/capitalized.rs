@@ -24,7 +24,7 @@ impl AlwaysAutofixableViolation for FirstLineCapitalized {
         )
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         format!(
             "Capitalize `{}` to `{}`",
             self.first_word, self.capitalized_word

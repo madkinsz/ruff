@@ -54,7 +54,7 @@ impl AlwaysAutofixableViolation for UnnecessaryPass {
         format!("Unnecessary `pass` statement")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove unnecessary `pass`".to_string()
     }
 }
@@ -90,7 +90,7 @@ impl AlwaysAutofixableViolation for DuplicateClassFieldDefinition {
         format!("Class field `{name}` is defined multiple times")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let DuplicateClassFieldDefinition(name) = self;
         format!("Remove duplicate field definition for `{name}`")
     }
@@ -209,7 +209,7 @@ impl AlwaysAutofixableViolation for MultipleStartsEndsWith {
         format!("Call `{attr}` once with a `tuple`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let MultipleStartsEndsWith { attr } = self;
         format!("Merge into a single `{attr}` call")
     }
@@ -290,7 +290,7 @@ impl AlwaysAutofixableViolation for ReimplementedListBuiltin {
         format!("Prefer `list` over useless lambda")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Replace with `list`".to_string()
     }
 }

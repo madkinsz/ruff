@@ -29,7 +29,7 @@ impl AlwaysAutofixableViolation for UnderIndentation {
         format!("Docstring is under-indented")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Increase indentation".to_string()
     }
 }
@@ -43,7 +43,7 @@ impl AlwaysAutofixableViolation for OverIndentation {
         format!("Docstring is over-indented")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove over-indentation".to_string()
     }
 }

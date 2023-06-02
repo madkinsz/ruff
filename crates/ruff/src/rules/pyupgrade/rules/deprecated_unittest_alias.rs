@@ -21,7 +21,7 @@ impl AlwaysAutofixableViolation for DeprecatedUnittestAlias {
         format!("`{alias}` is deprecated, use `{target}`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let DeprecatedUnittestAlias { alias, target } = self;
         format!("Replace `{target}` with `{alias}`")
     }

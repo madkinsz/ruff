@@ -22,7 +22,7 @@ impl Violation for CollectionLiteralConcatenation {
         format!("Consider `{expr}` instead of concatenation")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let CollectionLiteralConcatenation { expr } = self;
         Some(format!("Replace with `{expr}`"))
     }

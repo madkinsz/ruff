@@ -15,7 +15,7 @@ impl AlwaysAutofixableViolation for QuotedAnnotation {
         format!("Remove quotes from type annotation")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove quotes".to_string()
     }
 }

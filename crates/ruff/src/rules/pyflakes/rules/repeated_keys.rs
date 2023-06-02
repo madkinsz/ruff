@@ -25,7 +25,7 @@ impl Violation for MultiValueRepeatedKeyLiteral {
         format!("Dictionary key literal `{name}` repeated")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let MultiValueRepeatedKeyLiteral {
             repeated_value,
             name,
@@ -52,7 +52,7 @@ impl Violation for MultiValueRepeatedKeyVariable {
         format!("Dictionary key `{name}` repeated")
     }
 
-    fn autofix_title(&self) -> Option<String> {
+    fn advice(&self) -> Option<String> {
         let MultiValueRepeatedKeyVariable {
             repeated_value,
             name,

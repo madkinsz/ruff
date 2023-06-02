@@ -17,7 +17,7 @@ impl AlwaysAutofixableViolation for SuperCallWithParameters {
         format!("Use `super()` instead of `super(__class__, self)`")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove `__super__` parameters".to_string()
     }
 }

@@ -29,7 +29,7 @@ impl AlwaysAutofixableViolation for WhitespaceBeforeParameters {
         format!("Whitespace before '{bracket}'")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         let bracket = self.bracket_text();
         format!("Removed whitespace before '{bracket}'")
     }

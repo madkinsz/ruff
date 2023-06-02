@@ -149,7 +149,7 @@ This implies that rule names:
 - should state the bad thing being checked for
 
 - should not contain instructions on what you should use instead
-  (these belong in the rule documentation and the `autofix_title` for rules that have autofix)
+  (these belong in the rule documentation and the `Violation::advice` or `Fix::message`)
 
 When re-implementing rules from other linters, this convention is given more importance than
 preserving the original rule name.

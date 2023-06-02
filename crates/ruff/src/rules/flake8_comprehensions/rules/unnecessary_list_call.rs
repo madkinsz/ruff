@@ -33,7 +33,7 @@ impl AlwaysAutofixableViolation for UnnecessaryListCall {
         format!("Unnecessary `list` call (remove the outer call to `list()`)")
     }
 
-    fn autofix_title(&self) -> String {
+    fn advice(&self) -> String {
         "Remove outer `list` call".to_string()
     }
 }
