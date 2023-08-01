@@ -1,47 +1,23 @@
 name: Benchmark
-
 on:
-  pull_request:
-    paths:
-      - 'Cargo.toml'
-      - 'Cargo.lock'
-      - 'rust-toolchain'
-      - 'crates/**'
-      - '!crates/ruff_dev'
-      - '!crates/ruff_shrinking'
-
+  issue_comment:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.event.pull_request.number || github.sha }}
+  group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.event.issue.number || github.sha }}
   cancel-in-progress: true
 
 jobs:
   run-benchmark:
-    if: github.event_name == 'pull_request'
+    if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, "/bench") }}
     name: "Run | ${{ matrix.os }}"
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-latest ]
+        os: [ubuntu-latest, windows-latest]
+
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: "PR - Checkout Branch"
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
-      - name: "PR - Install Rust toolchain"
-        run: rustup show
-
-      - uses: Swatinem/rust-cache@v2
-
-      - name: "PR - Build benchmarks"
-        run: cargo bench -p ruff_benchmark --no-run
-
-      - name: "PR - Run benchmarks"
-        run: cargo benchmark --save-baseline=pr
-
       - name: "Main - Checkout Branch"
         uses: actions/checkout@v3
         with:
@@ -51,11 +27,28 @@ jobs:
       - name: "Main - Install Rust toolchain"
         run: rustup show
 
+      - uses: Swatinem/rust-cache@v2
+
       - name: "Main - Build benchmarks"
         run: cargo bench -p ruff_benchmark --no-run
 
       - name: "Main - Run benchmarks"
         run: cargo benchmark --save-baseline=main
+
+      - name: "PR - Checkout Branch"
+        # Note we want to check out the HEAD commit rather than the MERGE commit
+        # We do not have access to the SHA on comment events so we use the
+        # GitHub CLI instead of actions/checkout
+        run: gh pr checkout ${{ github.event.issue.number }}
+
+      - name: "PR - Install Rust toolchain"
+        run: rustup show
+
+      - name: "PR - Build benchmarks"
+        run: cargo bench -p ruff_benchmark --no-run
+
+      - name: "PR - Run benchmarks"
+        run: cargo benchmark --save-baseline=pr
 
       - name: "Upload benchmark results"
         uses: actions/upload-artifact@v3
@@ -70,7 +63,7 @@ jobs:
           path: ./target/criterion
 
   benchmark-compare:
-    if: github.event_name == 'pull_request'
+    if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, "/bench") }}
     runs-on: ubuntu-latest
     name: Compare
     needs:
@@ -119,7 +112,7 @@ jobs:
           echo "\`\`\`" >> summary.md
           echo "" >> summary.md
 
-          echo ${{ github.event.pull_request.number }} > pr-number
+          echo ${{ github.event.issue.number }} > pr-number
 
           cat summary.md > $GITHUB_STEP_SUMMARY
 
