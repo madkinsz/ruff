@@ -29,6 +29,8 @@ pub(crate) fn linter(format: HelpFormat) -> Result<()> {
     let mut stdout = BufWriter::new(io::stdout().lock());
     let mut output = String::new();
 
+    std::thread::sleep(std::time::Duration::from_millis(100));
+
     match format {
         HelpFormat::Text => {
             for linter in Linter::iter() {
